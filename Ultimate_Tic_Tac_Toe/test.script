@@ -1,0 +1,36 @@
+Group Members: Itembe Matiku, Henrik Kaellenius
+
+Research Question:
+How does an MCTS agent compare to a Heuristics-Based agent in the game of Ultimate Tic Tac Toe?
+
+Implementation:
+For the game framework (state.py, simulate_game.py, random_player.py) we used AI generated code. It took more time and prompt engineering than expected to develop a suitable environment. 
+We implemented three agents: a greedy agent, a heuristics-based agent, and a MCTS-agent. 
+- The greedy agent simply tries to win a sub-grid by getting three in a row, otherwise the agent chooses randomly.
+- The heuristics-based agent determines a running score for each possible action based on certain rules:
+    - increase the score if:
+        - it's a center piece of the sub grid
+        - it's a corner piece of the sub grid
+        - it wins a sub grid
+        - it wins the whole game (highest score obviously)
+        - it can block the other play to get three in a row in the current grid
+    - decrease the score if:
+        - it would place the other player in a sub grid where they can win the sub grid in one move
+        - it would place the other player in a sub grid where they can win the whole game
+        - the following grid is full or already taking (allowing the other player to place their piece in any spot)
+- The MCTS based agent implements Monte Carlo tree search algorithm:
+    -given a board state,it loops over possible actions and simulates a game by taking 
+
+
+Results
+
+Simulation Results of Heuristic vs. MCTS (with 0.05 seconds) over 100 Games:
+Player X (heuristic) wins: 41, winning percentage: 41.0%
+Player O (mcts) wins: 45, winning percentage: 45.0%
+Draws: 14
+
+Simulation Results of Heuristic vs. MCTS (with 0.1 seconds) over 100 Games:
+
+Simulation Results of Heuristic vs. MCTS (with 0.5 seconds) over 100 Games:
+
+Simulation Results of Heuristic vs. Greedy over 1000 Games:
